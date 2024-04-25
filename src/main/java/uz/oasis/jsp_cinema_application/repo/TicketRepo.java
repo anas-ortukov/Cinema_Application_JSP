@@ -23,14 +23,6 @@ public class TicketRepo extends BaseRepo<Ticket, UUID> {
         Query nativeQuery = em.createNativeQuery(query, TicketRecord.class);
         nativeQuery.setParameter("userId", currentUser.getId());
         return (List<TicketRecord>) nativeQuery.getResultList();
-//        String query = """
-//                            SELECT m.title, ses.dateTime, h.name, s.name, m.photo FROM Ticket t
-//                            JOIN Seat s ON s.id = t.seat.id
-//                            JOIN Hall h on h.seats.id = t.seat.id
-//                            JOIN Session ses on h.id = ses.hall.id
-//                            JOIN Movie m on ses.movie.id = m.id
-//                            WHERE t.user.id = :userId""";
-//        Query nativeQuery = em.createQuery(query, TicketRecord.class);
 
     }
 }

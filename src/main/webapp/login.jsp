@@ -11,7 +11,7 @@
 <%
     String manyTimes = request.getParameter("multiple");
     if (manyTimes != null) { %>
-<div id="notification" class="notification col-4 offset-4 mt-4 bg-danger text-white text-center">
+<div id="notification" class="notification col-4 offset-4 mt-4 p-2 bg-danger text-white text-center">
     Email or password is wrong. Please, try again!
 </div>
 <% } %>

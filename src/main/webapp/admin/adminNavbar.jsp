@@ -19,7 +19,7 @@
 <div class="col-10 offset-1">
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark rounded mt-4 shadow">
         <div class="container-fluid py-1">
-            <a class="navbar-brand ms-5" href="/">Admin Dashboard</a>
+            <a class="navbar-brand ms-5" href="#">Admin Dashboard</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                     aria-expanded="false" aria-label="Toggle navigation">

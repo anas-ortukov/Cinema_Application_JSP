@@ -52,13 +52,18 @@
         <h1 class="mb-4">My Ticket Report</h1>
         <a href="/client/index.jsp" class="btn btn-dark mb-5 px-3 py-2">Back</a>
     </div>
-
+    <% if (ticketRecords.size() == 0) { %>
+    <h4 class="text-center mt-4 rounded shadow py-3">No tickets bought yet.</h4>
+    <% } %>
     <% for (TicketRecord ticketRecord : ticketRecords) { %>
     <div class="ticket shadow">
         <img src="/moviePhoto?id=<%=ticketRecord.movieId()%>" alt="Avengers: Endgame" class="mr-3">
         <div class="ticket-info">
-            <h3><%=ticketRecord.movieTitle()%></h3>
-            <p>Date-Time: <span style="font-weight: bold"> <%=sessionRepo.showDateTime(ticketRecord.sessionTime().toLocalDateTime())%></span></p>
+            <h3><%=ticketRecord.movieTitle()%>
+            </h3>
+            <p>Date-Time: <span
+                    style="font-weight: bold"> <%=sessionRepo.showDateTime(ticketRecord.sessionTime().toLocalDateTime())%></span>
+            </p>
             <p>Hall: <span style="font-weight: bold"> <%=ticketRecord.hallName()%></span></p>
             <p>Seat Number: <span style="font-weight: bold"> <%=ticketRecord.seatName()%></span></p>
         </div>

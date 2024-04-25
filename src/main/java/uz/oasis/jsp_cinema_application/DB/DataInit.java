@@ -10,6 +10,8 @@ import uz.oasis.jsp_cinema_application.entity.User;
 import uz.oasis.jsp_cinema_application.repo.HallRepo;
 import uz.oasis.jsp_cinema_application.repo.UserRepo;
 
+import java.util.UUID;
+
 @WebListener
 public class DataInit implements ServletContextListener {
 

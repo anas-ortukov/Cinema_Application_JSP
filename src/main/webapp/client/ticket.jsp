@@ -60,9 +60,12 @@
                         <% } %>
                     </ul>
                     <p>Total Price: $<span id="total-price"><%=basketSeat.size() * 10%></span></p>
+                    <div class="d-flex">
                     <form action="/seat/buy" method="post">
-                        <button class="btn btn-primary btn-block">Buy</button>
+                        <a href="/client/confirmation.jsp" class="btn btn-primary btn-block">Buy</a>
                     </form>
+                    <a href="/client/index.jsp" class="btn btn-dark mb-5 ms-4">Back</a>
+                    </div>
                 </div>
             </div>
         </div>

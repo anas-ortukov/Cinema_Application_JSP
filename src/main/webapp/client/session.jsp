@@ -61,12 +61,13 @@
             <h2 class="mb-4 text-center">Movie Details</h2>
             <div class="card shadow" style="height: 300px">
                 <div class="row g-0">
-                    <div class="col-md-4">
+                    <div class="col-md-3 me-4">
                         <img src="/moviePhoto?id=<%=movie.getId()%>" class="img-fluid rounded-start" alt="Movie Image" style="height: 298px">
                     </div>
                     <div class="col-md-8 align-content-center">
                         <div class="card-body">
                             <h3 class="card-title"><%=movie.getTitle()%></h3>
+                            <span class="badge bg-secondary mb-2"><%= movie.getGenre() %></span>
                             <p class="card-text"><%=movie.getDescription()%></p>
                         </div>
                     </div>
@@ -74,6 +75,9 @@
             </div>
             <h3 class="mt-5 text-center">Sessions</h3>
             <div class="list-group mt-3">
+                <% if (sessions.size() == 0) { %>
+                        <h4 class="text-center mt-4 rounded shadow py-3">Sorry, for this movie, there is no sessions yet.</h4>
+                <%    } %>
                 <% for (Session movieSession : sessions) { %>
                 <a href="/client/ticket.jsp?sessionId=<%=movieSession.getId()%>" class="btn btn-secondary p-3 mt-4 shadow">
                     <div class="d-flex w-100 justify-content-between">
@@ -83,6 +87,7 @@
                     </div>
                 </a>
                 <% } %>
+                <a href="/client/index.jsp" class="btn btn-dark mt-4">Back</a>
             </div>
         </div>
     </div>

@@ -40,6 +40,12 @@ public class SeatServlet extends HttpServlet {
             resp.sendRedirect("/client/ticket.jsp?sessionId="+ sessionId);
         }else if (req.getRequestURI().equals("/seat/buy")) {
             List<Seat> basketSeats = (List<Seat>) req.getSession().getAttribute("basketSeats");
+            Object object = req.getSession().getAttribute("code");
+            String code = req.getParameter("code");
+            if (!object.toString().equals(code)) {
+                resp.sendRedirect("/client/confirmation.jsp?multiple=true");
+                return;
+            }
             if (basketSeats.isEmpty()) {
                 resp.sendRedirect("/client/index.jsp?basketEmpty=true");
                 return;
