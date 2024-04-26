@@ -11,7 +11,7 @@ import java.util.UUID;
 public class TicketRepo extends BaseRepo<Ticket, UUID> {
 
     @SuppressWarnings("unchecked")
-    public static List<TicketRecord> finduserTickets(User currentUser) {
+    public static List<TicketRecord> findUserTickets(User currentUser) {
         String query = """
                             SELECT m.id, m.title, ses.datetime, h.name, s.name FROM Ticket t
                             JOIN seat s ON s.id = t.seat_id

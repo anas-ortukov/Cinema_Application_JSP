@@ -43,7 +43,7 @@
 
 <%
     User currentUser = (User) request.getSession().getAttribute("currentUser");
-    List<TicketRecord> ticketRecords = TicketRepo.finduserTickets(currentUser);
+    List<TicketRecord> ticketRecords = TicketRepo.findUserTickets(currentUser);
     SessionRepo sessionRepo = new SessionRepo();
 %>
 
