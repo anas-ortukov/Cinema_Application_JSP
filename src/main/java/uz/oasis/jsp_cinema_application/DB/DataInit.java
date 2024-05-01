@@ -17,6 +17,14 @@ public class DataInit implements ServletContextListener {
 
     @Override
     public void contextInitialized(ServletContextEvent sce) {
+        createData();
+        ServletContextListener.super.contextInitialized(sce);
+    }
+
+
+
+
+    private void createData() {
         Faker faker = new Faker();
         UserRepo userRepo = new UserRepo();
         HallRepo hallRepo = new HallRepo();
@@ -24,8 +32,14 @@ public class DataInit implements ServletContextListener {
             int i = 0;
             String password = "123";
             String hashpw = BCrypt.hashpw(password, BCrypt.gensalt());
+            User user = User.builder()
+                    .password(hashpw)
+                    .email("dong.lehner@yahoo.com")
+                    .name("Dong")
+                    .build();
+            userRepo.save(user);
             while (i < 100) {
-                User user = User.builder()
+                user = User.builder()
                         .name(faker.name().firstName())
                         .email(faker.internet().emailAddress())
                         .password(hashpw)
@@ -44,6 +58,5 @@ public class DataInit implements ServletContextListener {
                 i++;
             }
         }
-        ServletContextListener.super.contextInitialized(sce);
     }
 }

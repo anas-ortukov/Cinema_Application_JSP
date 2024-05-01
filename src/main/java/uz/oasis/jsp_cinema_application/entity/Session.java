@@ -30,8 +30,7 @@ public class Session {
     private Movie movie;
     @ManyToOne
     private Hall hall;
-
-
+    private boolean isArchived;
 
     public Integer getFreeSpace() {
         int i = 0;

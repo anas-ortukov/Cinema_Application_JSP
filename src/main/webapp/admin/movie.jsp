@@ -51,7 +51,7 @@
                 <td><img src="/moviePhoto?id=<%=movie.getId()%>" height="100px"></td>
             <td style="max-width: 200px; overflow: auto;"><textarea rows="4" cols="25"> <%=movie.getDescription()%></textarea>
             </td>
-            <td><%=movie.getGenre()%>
+            <td><%=movie.getGenres()%>
             </td>
             <td style="width: 120px"><%=movieRepo.numMovieSessions(movie)%>
             </td>

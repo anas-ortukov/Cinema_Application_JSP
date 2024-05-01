@@ -1,15 +1,13 @@
 package uz.oasis.jsp_cinema_application.entity;
 
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
 import java.util.UUID;
 
 @Entity
@@ -24,7 +22,10 @@ public class Movie {
     private UUID id;
     private String title;
     private String description;
-    private String genre;
+    @ElementCollection
+    private List<String> genres;
     private byte[] photo;
+    @Column(columnDefinition = "bool default false")
+    private boolean isArchived;
 
 }

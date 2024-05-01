@@ -82,7 +82,7 @@
                 <div class="card-body text-center">
                     <h5 class="card-title"><%=movie.getTitle()%>
                     </h5>
-                    <span class="badge bg-secondary mb-2"><%= movie.getGenre() %></span>
+                    <span class="badge bg-secondary mb-2"><%= movie.getGenres() %></span>
                     <p class="card-text"><%=movie.getDescription()%>
                     </p>
                     <a href="/client/session.jsp?movieId=<%=movie.getId()%>" class="btn btn-dark">Show Session</a>

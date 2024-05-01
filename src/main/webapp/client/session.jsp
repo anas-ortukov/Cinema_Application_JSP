@@ -25,36 +25,6 @@
     Movie movie = movieRepo.findById(UUID.fromString(id));
     List<Session> sessions = sessionRepo.findByMovieId(movie.getId());
     %>
-<%--<div class="container mt-4">--%>
-<%--    <div class="row justify-content-center">--%>
-<%--        <div class="col-md-8">--%>
-<%--            <h2 class="mb-4">Movie Details</h2>--%>
-<%--            <div class="card">--%>
-<%--                <div class="card-body">--%>
-<%--                    <h5 class="card-title">Movie Title</h5>--%>
-<%--                    <p class="card-text">Description of the movie.</p>--%>
-<%--                </div>--%>
-<%--            </div>--%>
-<%--            <h3 class="mt-4">Sessions</h3>--%>
-<%--            <table class="table">--%>
-<%--                <thead>--%>
-<%--                <tr>--%>
-<%--                    <th>Time</th>--%>
-<%--                    <th>Places left</th>--%>
-<%--                </tr>--%>
-<%--                </thead>--%>
-<%--                <tbody>--%>
-<%--                <% for (Session movieSession : sessions) { %>--%>
-<%--                <tr>--%>
-<%--                    <td><%= movieSession.getDateTime() %></td>--%>
-<%--                    <td><%= 15 %></td>--%>
-<%--                </tr>--%>
-<%--                <% } %>--%>
-<%--                </tbody>--%>
-<%--            </table>--%>
-<%--        </div>--%>
-<%--    </div>--%>
-<%--</div>--%>
 <div class="container mt-4">
     <div class="row justify-content-center">
         <div class="col-md-8">
@@ -67,7 +37,7 @@
                     <div class="col-md-8 align-content-center">
                         <div class="card-body">
                             <h3 class="card-title"><%=movie.getTitle()%></h3>
-                            <span class="badge bg-secondary mb-2"><%= movie.getGenre() %></span>
+                            <span class="badge bg-secondary mb-2"><%= movie.getGenres() %></span>
                             <p class="card-text"><%=movie.getDescription()%></p>
                         </div>
                     </div>
