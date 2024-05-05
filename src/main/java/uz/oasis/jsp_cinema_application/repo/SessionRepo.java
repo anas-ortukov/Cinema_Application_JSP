@@ -28,7 +28,6 @@ public class SessionRepo extends BaseRepo<Session, UUID> {
     public boolean availableSession(LocalDateTime dateTime, Hall hall) {
         LocalDateTime now = LocalDateTime.now();
         if (now.isAfter(dateTime)) {
-            System.out.println("it is after now");
             return false;
         }
 
@@ -41,5 +40,10 @@ public class SessionRepo extends BaseRepo<Session, UUID> {
             }
         }
         return true;
+    }
+
+    @Override
+    public List<Session> findAll() {
+        return em.createQuery("from Session s where s.movie.isArchived = false and s.isArchived = false", Session.class).getResultList();
     }
 }

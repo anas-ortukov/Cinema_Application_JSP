@@ -44,23 +44,24 @@
         </tr>
         </thead>
         <tbody>
-        <% for (Movie movie : movies) { %>
+        <% for (Movie movie : movies) {
+            if (!movie.isArchived()) {%>
         <tr>
             <td><%=movie.getTitle()%>
             </td>
                 <td><img src="/moviePhoto?id=<%=movie.getId()%>" height="100px"></td>
             <td style="max-width: 200px; overflow: auto;"><textarea rows="4" cols="25"> <%=movie.getDescription()%></textarea>
             </td>
-            <td><%=movie.getGenres()%>
+            <td><%=movie.formattedGenres()%>
             </td>
             <td style="width: 120px"><%=movieRepo.numMovieSessions(movie)%>
             </td>
             <td>
                 <a href="/admin/editMovie.jsp?id=<%=movie.getId()%>" class="btn btn-secondary me-2">Edit</a>
-                <a href="#" class="btn btn-danger">Delete</a>
+                <a href="/movie/archive?id=<%=movie.getId()%>" class="btn btn-danger">Delete</a>
             </td>
         </tr>
-        <% } %>
+        <% }} %>
         </tbody>
     </table>
 </div>

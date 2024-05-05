@@ -28,4 +28,18 @@ public class Movie {
     @Column(columnDefinition = "bool default false")
     private boolean isArchived;
 
+
+
+    public String formattedGenres() {
+        StringBuilder formattedGenres = new StringBuilder();
+        for (String genre : genres) {
+            String formattedGenre = genre.substring(0, 1).toUpperCase() + genre.substring(1).toLowerCase();
+            formattedGenres.append(formattedGenre).append("/");
+        }
+        if (!formattedGenres.isEmpty()) {
+            formattedGenres.setLength(formattedGenres.length() - 1);
+        }
+
+        return formattedGenres.toString();
+    }
 }

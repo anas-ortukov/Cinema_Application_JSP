@@ -37,7 +37,7 @@
                     <div class="col-md-8 align-content-center">
                         <div class="card-body">
                             <h3 class="card-title"><%=movie.getTitle()%></h3>
-                            <span class="badge bg-secondary mb-2"><%= movie.getGenres() %></span>
+                            <span class="badge bg-secondary mb-2"><%= movie.formattedGenres() %></span>
                             <p class="card-text"><%=movie.getDescription()%></p>
                         </div>
                     </div>

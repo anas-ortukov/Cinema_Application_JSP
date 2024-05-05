@@ -50,4 +50,19 @@ public class SessionService {
         resp.sendRedirect("/admin/sessions.jsp");
     }
 
+    @SneakyThrows
+    public static void archiveSession(HttpServletRequest req, HttpServletResponse resp) {
+        String id = req.getParameter("id");
+        if (id != null) {
+            try {
+                Session session = sessionRepo.findById(UUID.fromString(id));
+                sessionRepo.begin();
+                session.setArchived(true);
+                sessionRepo.commit();
+            }catch (IllegalArgumentException e) {
+                e.printStackTrace();
+            }
+        }
+        resp.sendRedirect("/admin/sessions.jsp");
+    }
 }

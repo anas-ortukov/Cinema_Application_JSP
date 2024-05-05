@@ -47,7 +47,7 @@
             <td><%=movieSession.getFreeSpace()%></td>
             <td>
                 <a href="/admin/editSession.jsp?id=<%=movieSession.getId()%>" class="btn btn-secondary">Edit</a>
-                <a href="#" class="btn btn-danger">Delete</a>
+                <a href="/session/archive?id=<%=movieSession.getId()%>" class="btn btn-danger">Delete</a>
             </td>
         </tr>
         <%   } %>

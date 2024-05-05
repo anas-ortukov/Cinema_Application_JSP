@@ -19,4 +19,11 @@ public class SessionServlet extends HttpServlet {
         }
     }
 
+    @Override
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        if (req.getRequestURI().equals("/movie/archive")) {
+            SessionService.archiveSession(req,resp);
+        }
+    }
+
 }

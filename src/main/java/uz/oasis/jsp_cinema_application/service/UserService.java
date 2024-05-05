@@ -61,9 +61,6 @@ public class UserService {
     }
 
     public static Optional<User> getUserByCookie(Cookie[] cookies) {
-        if (cookies == null) {
-            return Optional.empty();
-        }
         for (Cookie cookie : cookies) {
             if (cookie.getName().equals("userId")) {
                 UUID userId = UUID.fromString(cookie.getValue());

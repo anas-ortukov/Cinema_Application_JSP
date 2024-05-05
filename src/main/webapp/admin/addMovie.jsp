@@ -1,3 +1,5 @@
+<%@ page import="uz.oasis.jsp_cinema_application.entity.enums.Genre" %>
+<%@ page import="uz.oasis.jsp_cinema_application.service.MovieService" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -19,9 +21,10 @@
             <form action="/moviePhoto" method="post" enctype="multipart/form-data">
                 <div class="mb-3">
                     <label for="photo" class="form-label">
-                        <input class="d-none" type="file" id="photo" name="moviePhoto" accept="image/*" >
+                        <input class="d-none" type="file" id="photo" name="moviePhoto" accept="image/*">
                         <% if (moviePhoto == null) {%>
-                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSWzAhSWnwOj9_d_o8BDFth60wVR0OO5wzxqevZbQ9WyA&s" width="100px" id="photo">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSWzAhSWnwOj9_d_o8BDFth60wVR0OO5wzxqevZbQ9WyA&s"
+                             width="100px" id="photo">
                         <%} else { %>
                         <img src="/moviePhoto" width="100px" id="photo">
                         <% } %>
@@ -30,19 +33,31 @@
                 </div>
             </form>
             <form action="/movie/save" method="post">
-                <div class="mb-3">
+                <div class="mb-4">
                     <label for="title" class="form-label">Title</label>
                     <input type="text" class="form-control" id="title" name="title" required>
                 </div>
-                <div class="mb-3">
-                    <label for="genre" class="form-label">Genre</label>
-                    <input type="text" class="form-control" id="genre" name="genre" required>
+                <div class="row">
+                    <% int count = 0; %>
+                    <% for (Genre genre : Genre.values()) { %>
+                    <div class="col-4">
+                        <div class="form-check">
+                            <input class="form-check-input" name="genres" type="checkbox" id="<%=genre%>" value="<%=genre%>">
+                            <label class="form-check-label" for="<%=genre%>"><%=MovieService.formatGenre(genre)%></label>
+                        </div>
+                    </div>
+                    <% count++; %>
+                    <% if (count % 3 == 0) { %>
                 </div>
-                <div class="mb-3">
+                <div class="row">
+                    <% } %>
+                    <% } %>
+                </div>
+                <div class="my-4">
                     <label for="description" class="form-label">Description</label>
                     <textarea class="form-control" id="description" name="description" rows="2" required></textarea>
                 </div>
-                <div class="mb-3 d-grid justify-content-center" >
+                <div class=" d-grid justify-content-center">
                     <button type="submit" style="width: 120px" class="btn btn-primary">Add Movie</button>
                 </div>
             </form>
